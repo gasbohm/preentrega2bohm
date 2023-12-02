@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1,
+      "nombre": "Barra de pesas",
+      "Descripcion": "Barra olimpica profesional 20kg",
+      "imagen": "./imagenes/BARRADEPESAS.JPG",
+      "precio": "1200",
+      "stock": "35",
+      "categoria": "barras"
+    },
+
+    {
+      "id": 2,
+      "nombre": "Bici estática",
+      "Descripcion": "Bicicleta de spining profesional",
+      "imagen": "./imagenes/bici.jpg",
+      "precio": "8000",
+      "stock": "2",
+      "categoria": "bici"
+    },
+    {
+      "id": 3,
+      "nombre": "Pesas 10 kg",
+      "Descripcion": "Mancuerna de uso domestico",
+      "imagen": "./imagenes/PESAS10KG.jpg",
+      "precio": "600",
+      "stock": "10",
+      "categoria": "pesas"
+    },
+    {
+      "id": 4,
+      "nombre": "Guantes levantamiento",
+      "Descripcion": "Guantes antideslizantes",
+      "imagen": "./imagenes/guantes.jpg",
+      "precio": "500",
+      "stock": "50",
+      "categoria": "accesorios"
+    },
+    {
+      "id": 5,
+      "nombre": "Creatina",
+      "Descripcion": "Suplemento vitaminico",
+      "imagen": "./imagenes/creatina.jpg",
+      "precio": "900",
+      "stock": "40",
+      "categoria": "suplementos"
+    },
+    {
+      "id": 6,
+      "nombre": "Pulsera fitness",
+      "Descripcion": "Pulsera viocontrol de entrenamiento",
+      "imagen": "./imagenes/pulsera.jpg",
+      "precio": "300",
+      "stock": "10",
+      "categoria": "accesorios"
+    }
+  ]
