@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../CartWidget/CartWidget';  
 import Logo from '../NavBar/logo';
-import { Link, useLocation } from 'react-router-dom';
 import '../NavBar.css'; // Asegúrate de importar tu archivo CSS si tienes estilos adicionales.
 
 function NavBar() {

@@ -1,7 +1,7 @@
 // ItemListContainer.jsx
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import arrayProductos from '../Json/arrayProducto.json';
+import arrayProducto from '../Json/arrayProducto.json';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
 
@@ -14,7 +14,7 @@ const ItemListContainer = () => {
       try {
         const data = await new Promise((resolve) => {
           setTimeout(() => {
-            resolve(id ? arrayProductos.filter((item) => item.categoria === id) : arrayProductos);
+            resolve(id ? arrayProducto.filter((item) => item.categoria === id) : arrayProducto);
           }, 2000);
         });
         setItems(data);  

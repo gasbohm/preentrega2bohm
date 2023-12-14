@@ -1,0 +1,14 @@
+/* ItemListContainer.css */
+.item-container {
+  margin: 10px;
+  text-align: center;
+}
+
+.item-link {
+  text-decoration: none;
+  color: black;
+}
+
+.item-image {
+  max-width: 100%; /* Ajusta el tamaño máximo de la imagen al contenedor */
+}

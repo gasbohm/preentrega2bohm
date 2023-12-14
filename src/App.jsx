@@ -18,7 +18,7 @@ function App() {
             <Route path= '/' element={ <ItemListContainer />}/>
             <Route path= '/category/:id' element={ <ItemListContainer />}/>
             <Route path= '/Item/:id' element={ <ItemDetailContainer />}/>
-            <Route path= {'*'} element={ <Error />}/>
+            <Route path= '*' element={ <Error />}/>
             
             </Routes>
             
