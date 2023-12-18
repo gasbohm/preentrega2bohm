@@ -1,12 +1,17 @@
-import {BsFillCartCheckFill} from 'react-icons/bs'; 
+import { BsFillCartCheckFill } from 'react-icons/bs';
+import {useCartContext} from '../Context/CartContext';
+
 
 const CartWidget = () => {
+  const {totalProducts, cart} = useCartContext();
   return (
-    <div>
-        <button> <BsFillCartCheckFill/> </button>
-        <p>1</p>
+    <div className="container">
+      <button>
+        <BsFillCartCheckFill />
+        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{totalProducts() ||cart}</span>
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default CartWidget
+export default CartWidget;
