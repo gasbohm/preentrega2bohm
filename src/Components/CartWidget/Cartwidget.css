@@ -1,10 +1,13 @@
 .container {
     position: relative;
+  
   }
   
+
+
   button {
-    background-color: #4caf50;
-    color: white;
+ 
+    color: black;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -13,7 +16,8 @@
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: black;
+    color: rgb(47, 151, 155);
   }
   
   /* Estilo para el ícono del carrito */

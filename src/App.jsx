@@ -8,6 +8,8 @@ import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailCont
 import Cart from './Components/Cart/Cart';
 import CartProvider from "./Components/Context/CartContext";
 import LoaderComponent from '../src/Components/LoaderComponent';
+import React from 'react';
+import Footer from './Components/Footer';
 
 
 
@@ -32,6 +34,8 @@ function App() {
   
    </CartProvider>
     </BrowserRouter>
+    {/* Footer */}
+    <Footer />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 // ItemList.jsx
 import React from 'react';
 import Item from '../Item/Item';
-import '../item.css'; // Asegúrate de importar tu archivo de estilos
+import '../Item/Item.css'; // Asegúrate de importar tu archivo de estilos
 
 const ItemList = ({ items }) => {
   return (

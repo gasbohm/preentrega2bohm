@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImage from '../../assets/logodelta.jpg';
+import logoImage from '../../../imagenes/logodelta.png'
 
 const Logo = () => {
   return (

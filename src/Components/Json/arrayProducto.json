@@ -2,7 +2,7 @@
     {
       "id": 1,
       "nombre": "Barra de pesas 20kg",
-      "Descripcion": "Barra olimpica profesional 20kg",
+      "descripcion": "Barra olimpica profesional 20kg",
       "imagen": "../imagenes/BARRADEPESAS.JPG",
       "precio": "1200",
       "stock": "35",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "nombre": "Mancuerna 20 kg",
-      "Descripcion": "Mancuerna de uso domestico",
+      "descripcion": "Mancuerna de uso domestico",
       "imagen": "../imagenes/pesas20.jpg",
       "precio": "800",
       "stock": "10",
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "nombre": "Mancuerna 10 kg",
-      "Descripcion": "Mancuerna de uso domestico",
+      "descripcion": "Mancuerna de uso domestico",
       "imagen": "../imagenes/PESAS10KG.jpg",
       "precio": "600",
       "stock": "10",
@@ -30,7 +30,7 @@
     {
       "id": 4,
       "nombre": "Guantes levantamiento",
-      "Descripcion": "Guantes antideslizantes",
+      "descripcion": "Guantes antideslizantes",
       "imagen": "../imagenes/guantes.jpg",
       "precio": "500",
       "stock": "50",
@@ -39,7 +39,7 @@
     {
       "id": 5,
       "nombre": "Creatina",
-      "Descripcion": "Suplemento vitaminico",
+      "descripcion": "Suplemento vitaminico",
       "imagen": "../imagenes/creatina.jpg",
       "precio": "900",
       "stock": "40",
@@ -48,7 +48,7 @@
     {
       "id": 6,
       "nombre": "Pulsera fitness",
-      "Descripcion": "Pulsera viocontrol de entrenamiento",
+      "descripcion": "Pulsera viocontrol de entrenamiento",
       "imagen": "../imagenes/pulsera.jpg",
       "precio": "300",
       "stock": "10",
@@ -57,7 +57,7 @@
     {
       "id": 7,
       "nombre": "Barra de pesas 15kg",
-      "Descripcion": "Barra olimpica profesional 20kg",
+      "descripcion": "Barra olimpica profesional 20kg",
       "imagen": "../imagenes/barraquince.jpg",
       "precio": "1000",
       "stock": "8",
@@ -66,7 +66,7 @@
     {
       "id": 8,
       "nombre": "Whey Pro",
-      "Descripcion": "Suplemento en polvo sabor vainilla",
+      "descripcion": "Suplemento en polvo sabor vainilla",
       "imagen": "../imagenes/whey.jpg",
       "precio": "700",
       "stock": "20",
