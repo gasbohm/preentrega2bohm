@@ -21,7 +21,6 @@ function NavBar() {
           <Nav className="me-auto">
             <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
             <Link to="/category/barras" className={`nav-link ${location.pathname.includes('/category/barras') ? 'active' : ''}`}>Barras</Link>
-            <Link to="/category/bici" className={`nav-link ${location.pathname.includes('/category/bici') ? 'active' : ''}`}>Bicis</Link>
             <Link to="/category/pesas" className={`nav-link ${location.pathname.includes('/category/pesas') ? 'active' : ''}`}>Pesas</Link>
             <Link to="/category/suplementos" className={`nav-link ${location.pathname.includes('/category/suplementos') ? 'active' : ''}`}>Suplementos</Link>
             <Link to="/category/accesorios" className={`nav-link ${location.pathname.includes('/category/accesorios') ? 'active' : ''}`}>Accesorios</Link>
