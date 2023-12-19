@@ -1,30 +1,45 @@
 import React, { useState } from 'react';
-import ItemCount from '../ItemCount/ItemCount'; // Asegúrate de importar el componente ItemCount correctamente
+import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../Context/CartContext';
 
 const ItemDetail = ({ item }) => {
-  if (!item) {
-    return <div>Cargando...</div>;
-  }
+  const [goToCart, setGoToCart] = useState(false);
+  const { addProduct, removeProduct } = useCartContext();
 
-  const { imagen, nombre, descripcion, precio, stock } = item;
-
-  const handleAddToCart = (quantity) => {
-    // Aquí puedes realizar la lógica para agregar al carrito, si es necesario
-    console.log(`Agregado al carrito: ${quantity} ${nombre}`);
+  const onAdd = (quantity) => {
+    setGoToCart(true);
+    addProduct(item, quantity);
   };
 
+  const onRemove = () => {
+    // Lógica para eliminar el producto del carrito
+    removeProduct(item.id);
+  };
+
+  if (!item) {
+    return <p>Cargando...</p>;
+  }
+
   return (
-    <div className='row'>
-      <div className='col-md-4 offset-md-4'>
-        {imagen && <img src={imagen} className='img-fluid' alt={nombre} />}
-        <h3>{nombre}</h3>
-        <p>{descripcion}</p>
-        <p>$ {precio}</p>
-        <p>cantidad: {stock}</p>
-        <ItemCount stock={stock} initial={1} onAdd={handleAddToCart} />
+    <div className="item-detail">
+      <div className="col-md-4 offset-md-4">
+        <img src={item.imagen} className="img-fluid" alt={item.nombre} />
+        <h2>{item.nombre}</h2>
+        <p>{item.descripcion}</p>
+        <p>$ {item.precio}</p>
+        <p>Cantidad: {item.stock}</p>
+      </div>
+      <div>
+        {goToCart ? (
+          <Link to="/cart">Terminar compra</Link>
+        ) : (
+          <ItemCount stock={item.stock} initial={0} onAdd={onAdd} onRemove={onRemove} />
+        )}
       </div>
     </div>
   );
 };
 
 export default ItemDetail;
+
