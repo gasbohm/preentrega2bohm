@@ -5,7 +5,8 @@ Delta Fitness E-commerce es un proyecto de comercio electrónico diseñado para 
 
 ![pagina](image.png)
 
-Tecnologías Utilizadas
+Tecnologías Utilizadas:
+
 React: El proyecto se desarrolló utilizando React, un popular framework de JavaScript para construir interfaces de usuario interactivas.
 
 Bootstrap: Se implementó Bootstrap para garantizar un diseño responsive y una apariencia moderna y consistente en todas las páginas del sitio.
