@@ -57,7 +57,7 @@
     {
       "id": 7,
       "nombre": "Barra de pesas 15kg",
-      "descripcion": "Barra olimpica profesional 20kg",
+      "descripcion": "Barra olimpica profesional 15kg",
       "imagen": "../imagenes/barraquince.jpg",
       "precio": "1000",
       "stock": "8",
