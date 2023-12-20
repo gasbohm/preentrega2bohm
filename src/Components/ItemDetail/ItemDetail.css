@@ -1,7 +1,8 @@
-
+.container 
 
 
 .img-fluid {
     height: 200px;
     width: 800px;
+    margin-bottom: 20px;
 }
