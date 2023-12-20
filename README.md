@@ -23,9 +23,10 @@ Una vez que la aplicación esté instalada y en funcionamiento, los usuarios pue
 
 
 
-Autor
-Nombre del Autor: Gaston Bohm
+Autor: Gaston Bohm
+
 Contacto: gastonbohm@hotmail.com
+
 Estado del Proyecto: finalizado
 
 
