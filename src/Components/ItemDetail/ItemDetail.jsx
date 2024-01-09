@@ -25,10 +25,10 @@ const ItemDetail = ({ item }) => {
   return (
     <div className="item-detail">
       <div className="col-md-4 offset-md-4">
-        <img src={item.imagen} className="img-fluid" alt={item.nombre} />
-        <h2>{item.nombre}</h2>
-        <p>{item.descripcion}</p>
-        <p>$ {item.precio}</p>
+        <img src={item.img} className="img-fluid" alt={item.title} />
+        <h2>{item.title}</h2>
+        <p>{item.description}</p>
+        <p>$ {item.price}</p>
         <p>Cantidad: {item.stock}</p>
       </div>
       <div>
