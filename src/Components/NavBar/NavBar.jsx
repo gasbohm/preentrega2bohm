@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import CartWidget from '../CartWidget/CartWidget';  
+import CartWidget from '../CartWidget/CartWidget';
 import Logo from '../NavBar/logo';
 import '../NavBar.css'; // Asegúrate de importar tu archivo CSS si tienes estilos adicionales.
 
@@ -17,7 +17,7 @@ function NavBar() {
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            <NavLink exact to="/" className="nav-link">
+            <NavLink exact="true" to="/" className="nav-link">
               Home
             </NavLink>
             <NavLink to="/category/barras" className="nav-link">
@@ -43,3 +43,4 @@ function NavBar() {
 }
 
 export default NavBar;
+

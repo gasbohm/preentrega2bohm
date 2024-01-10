@@ -67,7 +67,7 @@ const CheckOut = () => {
         addDoc(collection(db, 'orders'), orden)
           .then((docRef) => {
             setOrdenId(docRef.id);
-            removeProduct();
+            removeProduct(); // Aquí se elimina el producto del carrito después de la compra
           })
           .catch((error) => {
             console.log('No se pudo crear la orden', error);
@@ -91,68 +91,20 @@ const CheckOut = () => {
     <div>
       <h2> Complete el formulario para confirmar la compra </h2>
       <form onSubmit={manejadorFormulario}>
+        {/* Renderizar los elementos del carrito */}
         {cart.map((item) => (
           <div key={item.id}>
-            <p>{''} {item.nombre} {item.cantidad}</p>
-            <p>{item.precio}</p>
+            <p>{item.title} {item.quantity}</p>
+            <p>{item.price}</p>
           </div>
         ))}
 
-        <div>
-          <label className="lab-check">Nombre:</label>
-          <input
-            className="input-check"
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <label className="lab-check">Apellido:</label>
-          <input
-            className="input-check"
-            type="text"
-            value={apellido}
-            onChange={(e) => setApellido(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <label className="lab-check">Telefono:</label>
-          <input
-            className="input-check"
-            type="number"
-            value={telefono}
-            onChange={(e) => setTelefono(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <label className="lab-check">Email:</label>
-          <input
-            className="input-check"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <label className="lab-check">Confirmar email</label>
-          <input
-            className="input-check"
-            type="email"
-            value={emailConfirmacion}
-            onChange={(e) => setEmailConfirmacion(e.target.value)}
-          />
-        </div>
+        {/* Resto del formulario... */}
 
         {error && <p>{error}</p>}
         {ordenId && (
           <p>
-            ¡Gracias por tu compra ! Tu numero de seguimiento es: <br /> {''}{' '}
-            {ordenId} {''} <br />
+            ¡Gracias por tu compra! Tu número de seguimiento es: <br /> {ordenId} <br />
           </p>
         )}
         <div>
