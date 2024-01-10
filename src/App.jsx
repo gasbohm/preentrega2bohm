@@ -10,6 +10,7 @@ import CartProvider from "./Components/Context/CartContext";
 import LoaderComponent from '../src/Components/LoaderComponent';
 import React from 'react';
 import Footer from './Components/Footer';
+import './Components/Firebase/config';
 
 
 

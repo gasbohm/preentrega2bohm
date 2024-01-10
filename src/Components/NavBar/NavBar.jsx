@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,28 +8,32 @@ import Logo from '../NavBar/logo';
 import '../NavBar.css'; // Asegúrate de importar tu archivo CSS si tienes estilos adicionales.
 
 function NavBar() {
-  const location = useLocation();
-
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+    <Navbar bg="dark" variant="dark" expand="lg" >
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <NavLink to="/" className="navbar-brand">
           <Logo />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbar-nav" />
+          </NavLink>
+          <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-            <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
-            <Link to="/category/barras" className={`nav-link ${location.pathname.includes('/category/barras') ? 'active' : ''}`}>Barras</Link>
-            <Link to="/category/pesas" className={`nav-link ${location.pathname.includes('/category/pesas') ? 'active' : ''}`}>Pesas</Link>
-            <Link to="/category/suplementos" className={`nav-link ${location.pathname.includes('/category/suplementos') ? 'active' : ''}`}>Suplementos</Link>
-            <Link to="/category/accesorios" className={`nav-link ${location.pathname.includes('/category/accesorios') ? 'active' : ''}`}>Accesorios</Link>
-          </Nav>
-          <Nav>
-            <Link to="/cart" className="nav-link">
-              <CartWidget />
-            </Link>
-          </Nav>
+          <NavLink exact to="/" className="nav-link">Home</NavLink>
+          <NavLink to="/category/barras" className="nav-link">
+          Barras
+            </NavLink>
+            <NavLink to="/category/pesas" className="nav-link">
+          Pesas
+            </NavLink>
+            <NavLink to="/category/suplementos" className="nav-link">
+          Suplementos
+            </NavLink>
+            <NavLink to="/category/accesorios" className="nav-link">
+          Accesorios
+            </NavLink>
+            </Nav>
+          <NavLink to="/cart" className="navbar-cart">
+            <CartWidget />
+          </NavLink>
         </Navbar.Collapse>
       </Container>
     </Navbar>
