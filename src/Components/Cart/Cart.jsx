@@ -5,7 +5,7 @@ import ItemCart from '../ItemCart/ItemCart';
 
 const Cart = () => {
   const { cart, totalPrice } = useCartContext();
- 
+
   if (cart.length === 0) {
     return (
       <>
@@ -17,13 +17,11 @@ const Cart = () => {
 
   return (
     <>
-      {cart.map((product) => (
-        <ItemCart key={product.id} product={product} />
+      {cart.map((item) => (
+        <ItemCart key={item.id} item={item} />
       ))}
-      <p>total: $ {totalPrice()}</p>
-   
+      <p>Total: $ {totalPrice()}</p>
       <Link to="/checkout">
-        {' '}
         <button className="btn-total">Finalizar Compra</button>
       </Link>
     </>
@@ -31,3 +29,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
+

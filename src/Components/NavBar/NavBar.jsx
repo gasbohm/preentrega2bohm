@@ -9,28 +9,30 @@ import '../NavBar.css'; // Asegúrate de importar tu archivo CSS si tienes estil
 
 function NavBar() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" >
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <NavLink to="/" className="navbar-brand">
           <Logo />
-          </NavLink>
-          <Navbar.Toggle aria-controls="navbar-nav" />
+        </NavLink>
+        <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="me-auto">
-          <NavLink exact to="/" className="nav-link">Home</NavLink>
-          <NavLink to="/category/barras" className="nav-link">
-          Barras
+            <NavLink exact to="/" className="nav-link">
+              Home
+            </NavLink>
+            <NavLink to="/category/barras" className="nav-link">
+              Barras
             </NavLink>
             <NavLink to="/category/pesas" className="nav-link">
-          Pesas
+              Pesas
             </NavLink>
             <NavLink to="/category/suplementos" className="nav-link">
-          Suplementos
+              Suplementos
             </NavLink>
             <NavLink to="/category/accesorios" className="nav-link">
-          Accesorios
+              Accesorios
             </NavLink>
-            </Nav>
+          </Nav>
           <NavLink to="/cart" className="navbar-cart">
             <CartWidget />
           </NavLink>
