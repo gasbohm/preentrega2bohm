@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import { useCartContext } from '../Context/CartContext';
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  updateDoc,
-  doc,
-  getDoc,
-} from 'firebase/firestore';
+import { getFirestore, collection, addDoc, updateDoc, doc, getDoc } from 'firebase/firestore';
 
 const CheckOut = () => {
   const [nombre, setNombre] = useState('');
@@ -17,11 +10,10 @@ const CheckOut = () => {
   const [emailConfirmacion, setEmailConfirmacion] = useState('');
   const [error, setError] = useState('');
   const [ordenId, setOrdenId] = useState('');
-  const [mensaje, setMensaje] = useState('');
 
   const { cart, totalPrice, removeProduct } = useCartContext();
 
-  const manejadorFormulario = (event) => {
+  const manejadorFormulario = async (event) => {
     event.preventDefault();
 
     if (!nombre || !apellido || !telefono || !email || !emailConfirmacion) {
@@ -34,72 +26,91 @@ const CheckOut = () => {
       return;
     }
 
-    const total = totalPrice();
-    const orden = {
-      items: cart.map((item) => ({
-        id: item.id,
-        nombre: item.title,
-        cantidad: item.quantity,
-      })),
-      total: total,
-      fecha: new Date(),
-      nombre,
-      apellido,
-      telefono,
-      email,
-    };
+    try {
+      const db = getFirestore();
 
-    Promise.all(
-      orden.items.map(async (itemOrden) => {
-        const db = getFirestore();
-        const itemRef = doc(db, 'items', itemOrden.id);
+      await Promise.all(
+        cart.map(async (producto) => {
+          const productoRef = doc(db, 'products', producto.id);
+          const productoDoc = await getDoc(productoRef);
+          const stockActual = productoDoc.data().stock;
 
-        const itemDoc = await getDoc(itemRef);
-        const stockActual = itemDoc.data().stock;
-
-        await updateDoc(itemRef, {
-          stock: stockActual - itemOrden.cantidad,
-        });
-      })
-    )
-      .then(() => {
-        const db = getFirestore();
-        addDoc(collection(db, 'orders'), orden)
-          .then((docRef) => {
-            setOrdenId(docRef.id);
-            removeProduct(); // Aquí se elimina el producto del carrito después de la compra
-          })
-          .catch((error) => {
-            console.log('No se pudo crear la orden', error);
-            setError('Error en la orden');
+          await updateDoc(productoRef, {
+            stock: stockActual - producto.quantity,
           });
-      })
-      .catch((error) => {
-        console.log('No se puede actualizar el stock', error);
-        setError('No se actualizo el stock');
-      });
+        })
+      );
 
-    setNombre('');
-    setApellido('');
-    setTelefono('');
-    setEmail('');
-    setEmailConfirmacion('');
-    setMensaje('');
+      const orderCollectionRef = collection(db, 'orders');
+      const total = totalPrice();
+
+      const orden = {
+        items: cart.map((producto) => ({
+          id: producto.id,
+          nombre: producto.title,
+          cantidad: producto.quantity,
+        })),
+        total: total,
+        fecha: new Date(),
+        nombre,
+        apellido,
+        telefono,
+        email,
+      };
+
+      const newOrderRef = await addDoc(orderCollectionRef, orden);
+
+      setOrdenId(newOrderRef.id);
+      removeProduct();
+      setNombre('');
+      setApellido('');
+      setTelefono('');
+      setEmail('');
+      setEmailConfirmacion('');
+      setError('');
+    } catch (error) {
+      console.error('Error al procesar la compra:', error);
+      setError('Hubo un error al procesar la compra');
+    }
   };
 
   return (
     <div>
       <h2> Complete el formulario para confirmar la compra </h2>
       <form onSubmit={manejadorFormulario}>
-        {/* Renderizar los elementos del carrito */}
-        {cart.map((item) => (
-          <div key={item.id}>
-            <p>{item.title} {item.quantity}</p>
-            <p>{item.price}</p>
+        {cart.map((producto) => (
+          <div key={producto.id}>
+            <p>
+              {producto.title} - Cantidad: {producto.quantity}
+            </p>
+            <p>Precio por unidad: ${producto.price}</p>
           </div>
         ))}
 
-        {/* Resto del formulario... */}
+        <div>
+          <label className="lab-check">Nombre:</label>
+          <input className="input-check" type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+        </div>
+
+        <div>
+          <label className="lab-check">Apellido:</label>
+          <input className="input-check" type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} />
+        </div>
+
+        <div>
+          <label className="lab-check">Telefono:</label>
+          <input className="input-check" type="number" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
+        </div>
+
+        <div>
+          <label className="lab-check">Email:</label>
+          <input className="input-check" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+
+        <div>
+          <label className="lab-check">Confirmar email</label>
+          <input className="input-check" type="email" value={emailConfirmacion} onChange={(e) => setEmailConfirmacion(e.target.value)} />
+        </div>
 
         {error && <p>{error}</p>}
         {ordenId && (

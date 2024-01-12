@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useCartContext } from '../Context/CartContext';
 import ItemCart from '../ItemCart/ItemCart';
 
+
 const Cart = () => {
   const { cart, totalPrice } = useCartContext();
 
@@ -21,9 +22,11 @@ const Cart = () => {
         <ItemCart key={item.id} item={item} />
       ))}
       <p>Total: $ {totalPrice()}</p>
-      <Link to="/checkout"> 
+      <Link to="/checkout">
         <button className="btn-total">Finalizar Compra</button>
       </Link>
+      {''}
+      <CheckOut />
     </>
   );
 };

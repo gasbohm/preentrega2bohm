@@ -1,8 +1,8 @@
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import './App.css';
-import NavBar from "./Components/NavBar/NavBar";
+import NavBar from './Components/NavBar/NavBar';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { CheckOut } from '../src/Components/Checkout/CheckOut';
+import {CheckOut} from '../src/Components/Checkout/CheckOut'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Error from './Components/Error';
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";

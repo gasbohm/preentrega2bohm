@@ -4,15 +4,15 @@ import { useCartContext } from '../Context/CartContext';
 import './CartWidget.css';
 
 const CartWidget = () => {
-  const { totalProducts } = useCartContext();
+  const { totalItems } = useCartContext();
 
   return (
     <div className="container">
       <button>
         <BsFillCartCheckFill />
-        {totalProducts() !== null && (
+        {totalItems() !== null && (
           <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {totalProducts()}
+            {totalItems()}
           </span>
         )}
       </button>
