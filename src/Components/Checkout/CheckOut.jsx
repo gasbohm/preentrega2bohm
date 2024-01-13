@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useCartContext } from "../Context/CartContext"
 import {getFirestore, collection, addDoc, updateDoc, doc, getDoc} from 'firebase/firestore';
-
+import '../Checkout/CheckOut.css'
 export const CheckOut = () =>{
       const [nombre, setNombre] = useState('');
       const [apellido, setApellido] = useState('');
@@ -129,7 +129,7 @@ export const CheckOut = () =>{
             <p> ¡Gracias por tu compra ! Tu numero de seguimiento es: <br/> {''} {ordenId} {''} <br/></p>
           )}
            <div>
-            <button type="submit"> Enviar </button>
+            <button className="button2" type="submit"> Enviar </button>
            </div>
           </form>
         </div>
