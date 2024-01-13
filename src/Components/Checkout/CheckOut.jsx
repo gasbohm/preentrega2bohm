@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { useCartContext } from '../Context/CartContext';
-import { getFirestore, collection, addDoc, updateDoc, doc, getDoc } from 'firebase/firestore';
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  updateDoc,
+  doc,
+  getDoc,
+} from 'firebase/firestore';
 
 const CheckOut = () => {
   const [nombre, setNombre] = useState('');
@@ -81,9 +88,9 @@ const CheckOut = () => {
         {cart.map((producto) => (
           <div key={producto.id}>
             <p>
-              {producto.title} - Cantidad: {producto.quantity}
+              {''} {producto.title} {producto.quantity}
             </p>
-            <p>Precio por unidad: ${producto.price}</p>
+            <p>{producto.precio}</p>
           </div>
         ))}
 
@@ -115,7 +122,7 @@ const CheckOut = () => {
         {error && <p>{error}</p>}
         {ordenId && (
           <p>
-            ¡Gracias por tu compra! Tu número de seguimiento es: <br /> {ordenId} <br />
+            ¡Gracias por tu compra! Tu numero de seguimiento es: <br /> {''} {ordenId} {''} <br />
           </p>
         )}
         <div>
