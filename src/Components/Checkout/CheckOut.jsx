@@ -46,7 +46,7 @@ export const CheckOut = () =>{
      Promise.all(
       orden.items.map(async (productoOrden)=>{
              const db = getFirestore();
-             const productoRef = doc(db, 'products', productoOrden.id);
+             const productoRef = doc(db, 'items', productoOrden.id);
 
              const productoDoc = await getDoc(productoRef);
              const stockActual = productoDoc.data().stock;
